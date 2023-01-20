@@ -1,0 +1,25 @@
+<div class="reports-container">
+  <div class="reports-header">
+    <h1>Reports generator</h1>
+  </div>
+
+  <%= form_tag reports_report_path, method: :get, class: "report-form" do %>
+    <div>
+      <%= label_tag :from, "Start date" %>
+      <%= date_field_tag :from%>
+    </div>
+    <div>
+      <%= label_tag :to, "End date" %>
+      <%= date_field_tag :to %>
+    </div>
+    <div>
+      <%= label_tag :category_id, "Category" %>
+      <%= select_tag :category_id, options_for_select(@categories), prompt: "Select a category"%>
+    </div>
+
+    <div class="report-btn">
+      <%= button_tag "By category", value: "by_category", class: "btn btn--form" %>
+      <%= button_tag "By dates", value: "by_dates", class: "btn btn--form"%>
+    </div>
+  <% end %>
+</div>
